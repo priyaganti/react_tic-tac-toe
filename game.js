@@ -60,3 +60,6 @@ class Game extends React.Component{
     );
   }
 }
+
+//Display the Game component inside the container div
+ReactDOM.render(<Game />, document.getElementById('conatiner'));
