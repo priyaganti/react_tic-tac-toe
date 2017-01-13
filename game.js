@@ -17,7 +17,7 @@ class Square extends React.Component{
  */
 class Board extends React.Component{
   _renderSquare(i){
-    return <Square />
+    return <Square />;
   }
   render(){
     const status = 'Next Player: X';
@@ -48,18 +48,18 @@ class Board extends React.Component{
 class Game extends React.Component{
   render(){
     return (
-      <div className="game"></div>
+      <div className="game">
         <div className="game-board">
           <Board />
         </div>
         <div className="game-info">
           <div>{/* status */}</div>
-          </ol>{/* list of moves */}</ol>
+          <ol>{/* list of moves */}</ol>
         </div>
-        </div>
+      </div>
     );
   }
 }
 
 //Display the Game component inside the container div
-ReactDOM.render(<Game />, document.getElementById('conatiner'));
+ReactDOM.render(<Game />, document.getElementById('container'));
