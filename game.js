@@ -43,3 +43,20 @@ class Board extends React.Component{
     );
   }
 }
+
+/* Game component */
+class Game extends React.Component{
+  render(){
+    return (
+      <div className="game"></div>
+        <div className="game-board">
+          <Board />
+        </div>
+        <div className="game-info">
+          <div>{/* status */}</div>
+          </ol>{/* list of moves */}</ol>
+        </div>
+        </div>
+    );
+  }
+}
