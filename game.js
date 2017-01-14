@@ -8,7 +8,12 @@
 class Square extends React.Component{
   render(){
     // access the passed data from the Board by using this.props
-    return (<button className="square">{this.props.value}</button>);
+    return
+    (
+      <button className="square" onClick={() => alert('click')}> //call alert when square is clicked
+        {this.props.value}
+      </button>
+    );
   }
 }
 
