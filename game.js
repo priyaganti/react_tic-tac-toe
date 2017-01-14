@@ -7,7 +7,8 @@
 /* Square Component */
 class Square extends React.Component{
   render(){
-    return (<button className="square"></button>);
+    // access the passed data from the Board by using this.props
+    return (<button className="square">{this.props.value}</button>);
   }
 }
 
@@ -17,7 +18,8 @@ class Square extends React.Component{
  */
 class Board extends React.Component{
   _renderSquare(i){
-    return <Square />;
+    //pass data from Board to Square component through props
+    return <Square value={i}/>;
   }
   render(){
     const status = 'Next Player: X';
