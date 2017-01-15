@@ -6,12 +6,18 @@
 
 /* Square Component */
 class Square extends React.Component{
+  //state can be used to store current values.(here square value). Set it to null initially.
+  constructor(){
+    super();
+    this.state = {
+      value: null,
+    };
+  }
   render(){
-    // access the passed data from the Board by using this.props
-    return
-    (
-      <button className="square" onClick={() => alert('click')}> //call alert when square is clicked
-        {this.props.value}
+    // display the current value of the square using this.state
+    return (
+      <button className="square" onClick={() => this.setState({value: 'X'})}>
+        {this.state.value}
       </button>
     );
   }
