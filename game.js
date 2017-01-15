@@ -9,7 +9,7 @@ class Square extends React.Component{
   //state from the parent components can be accessed by this.props in children
   render(){
     return (
-      <button className="square">
+      <button className="square" onClick={() => this.props.onClick()}>
         {this.props.value}
       </button>
     );
@@ -28,10 +28,19 @@ class Board extends React.Component{
       squares: Array(9).fill(null),
     };
   }
-  _renderSquare(i){
-    //pass state of each individual square.
-    return <Square value={this.state.squares[i]}/>;
+
+  _handleClick(i){
+    //data change without mutation. Instead of directly altering the squares array, create new array and change.
+    const squares = this.squares.slice();
+    squares[i] = 'X';
+    this.setState = ({squares: squares});
   }
+
+  _renderSquare(i){
+    //pass state of each individual square. Also pass the click handler.
+    return <Square value={this.state.squares[i]} onClick={() => this._handleClick()}/>;
+  }
+
   render(){
     const status = 'Next Player: X';
     return (
