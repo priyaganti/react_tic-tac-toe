@@ -4,16 +4,14 @@
  * Game - parent of Board
  */
 
-/* Square Component */
-class Square extends React.Component{
-  //state from the parent components can be accessed by this.props in children
-  render(){
-    return (
-      <button className="square" onClick={() => this.props.onClick()}>
-        {this.props.value}
-      </button>
-    );
-  }
+/* Square Component as Stateless Functional Component  without a render function */
+function Square(props){
+  //state from the parent components can be accessed by props in children
+  return (
+    <button className="square" onClick={() => props.onClick()}>
+      {props.value}
+    </button>
+  );
 }
 
 /* Board Component */
@@ -31,14 +29,14 @@ class Board extends React.Component{
 
   _handleClick(i){
     //data change without mutation. Instead of directly altering the squares array, create new array and change.
-    const squares = this.squares.slice();
+    const squares = this.state.squares.slice();
     squares[i] = 'X';
     this.setState = ({squares: squares});
   }
 
   _renderSquare(i){
     //pass state of each individual square. Also pass the click handler.
-    return <Square value={this.state.squares[i]} onClick={() => this._handleClick()}/>;
+    return <Square value={this.state.squares[i]} onClick={() => this._handleClick(i)} />;
   }
 
   render(){
