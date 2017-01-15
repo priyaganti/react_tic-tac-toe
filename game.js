@@ -6,18 +6,11 @@
 
 /* Square Component */
 class Square extends React.Component{
-  //state can be used to store current values.(here square value). Set it to null initially.
-  constructor(){
-    super();
-    this.state = {
-      value: null,
-    };
-  }
+  //state from the parent components can be accessed by this.props in children
   render(){
-    // display the current value of the square using this.state
     return (
-      <button className="square" onClick={() => this.setState({value: 'X'})}>
-        {this.state.value}
+      <button className="square">
+        {this.props.value}
       </button>
     );
   }
@@ -28,9 +21,16 @@ class Square extends React.Component{
  * to display the button from Square component.
  */
 class Board extends React.Component{
+  //have the state of all squares together in an array and initialize it to null.
+  constructor(){
+    super();
+    this.state = {
+      squares: Array(9).fill(null),
+    };
+  }
   _renderSquare(i){
-    //pass data from Board to Square component through props
-    return <Square value={i}/>;
+    //pass state of each individual square.
+    return <Square value={this.state.squares[i]}/>;
   }
   render(){
     const status = 'Next Player: X';
