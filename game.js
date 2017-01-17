@@ -4,15 +4,14 @@
  * Game - parent of Board
  */
 
- class Square extends React.Component{
-   render() {
-     return (
-       <button className="square" onClick={() => this.props.onSquareClick()}>
-        {this.props.value}
-        </button>
-    );
-  }
-}
+/* Square Component as Stateless Functional Component  without a render function */
+ function Square(props) {
+   return (
+     <button className="square" onClick={() => props.onSquareClick()}>
+       {props.value}
+     </button>
+   );
+ }
 
 /* Board Component */
 /* Create a board with 3 rows and let each column call the _renderSquare function
