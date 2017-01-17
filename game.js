@@ -21,9 +21,13 @@ class Board extends React.Component{
 
   _handleClick(i){
     //data change without mutation. Instead of directly altering the squares array, create new array and change.
+    // altering between X and O using xIsNext
     const squares = this.state.squares.slice();
-    squares[i] = 'X';
-    this.setState({squares: squares});
+    squares[i] = this.state.xIsNext ? 'X' : 'O';
+    this.setState({
+      squares: squares,
+      xIsNext: !this.state.xIsNext
+    });
   }
 
   //have the state of all squares together in an array and initialize it to null.
@@ -31,6 +35,7 @@ class Board extends React.Component{
     super();
     this.state = {
       squares: Array(9).fill(null),
+      xIsNext: true,
     };
   }
 
