@@ -23,6 +23,10 @@ class Board extends React.Component{
     //data change without mutation. Instead of directly altering the squares array, create new array and change.
     // altering between X and O using xIsNext
     const squares = this.state.squares.slice();
+    console.log(squares[i]);
+    if (calculateWinner(squares) || squares[i]){
+      return;
+    }
     squares[i] = this.state.xIsNext ? 'X' : 'O';
     this.setState({
       squares: squares,
